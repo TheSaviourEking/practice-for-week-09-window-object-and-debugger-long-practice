@@ -53,11 +53,11 @@ function breadthFirstSearch(value, searchItemType, searchType = "first", root = 
 
     const result = [];
     if (root) {
-        const stack = [root];
+        const queue = [root];
 
-        // while stack is not empty
-        while (stack.length > 0) {
-            let node = stack.splice(0, 1)[0];
+        // while queue is not empty
+        while (queue.length > 0) {
+            let node = queue.splice(0, 1)[0];
 
             switch (searchType) {
                 case 'first':
@@ -81,7 +81,7 @@ function breadthFirstSearch(value, searchItemType, searchType = "first", root = 
 
             for (let child of node.children) {
                 if (child) {
-                    stack.push(child);
+                    queue.push(child);
                 }
             }
         }
